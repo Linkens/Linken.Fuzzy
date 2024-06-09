@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Linken.Fuzzy
 {
@@ -18,7 +19,7 @@ namespace Linken.Fuzzy
         public List<T> FilteredItems => _FilteredItems;
         protected string _StringSearch;
         protected Timer _Timer;
-        public T? Selected { get; set; }
+        public T Selected { get; set; }
         public string StringSearch { get => _StringSearch; set { _StringSearch = value; SearchChanged(); } }
         public SearchHelper(List<T> Items)
         {

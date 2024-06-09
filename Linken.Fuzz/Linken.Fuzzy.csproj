@@ -2,14 +2,26 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Title>Linken Fuzzy</Title>
 		<AssemblyVersion>1.8.0</AssemblyVersion>
 		<FileVersion>$(AssemblyVersion)</FileVersion>
 		<Version>$(AssemblyVersion)</Version>
+		<PackageProjectUrl>https://github.com/Linkens/Linken.Fuzzy</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Linkens/Linken.Fuzzy</RepositoryUrl>
+		<PackageTags>Fuzzy;Search</PackageTags>
+		<Authors>Linkens</Authors>
+		<Company>SoftwareFactory</Company>
+		<TargetFrameworks>netstandard2.1;net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
+		<PackageReadmeFile>Readme.md</PackageReadmeFile>
+		<PackageIcon>Search.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
-
+	<ItemGroup>
+		<None Include="Readme.md" Pack="true" PackagePath="\" />
+		<None Include="Readme.md" Pack="true" PackagePath="\" />
+		<None Include="Search.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="FuzzySharp" Version="2.0.2" />
 	</ItemGroup>
