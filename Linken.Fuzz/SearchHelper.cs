@@ -27,6 +27,20 @@ namespace Linken.Fuzzy
             _FilteredItems = Items.ToList();
             _Timer = new Timer(OnTime, null, Timeout.Infinite, Timeout.Infinite);
         }
+        public SearchHelper(List<T> Items, Func<T, string> GetSimpleSearch) {
+            _Items = Items;
+            _FilteredItems = Items.ToList();
+            _Timer = new Timer(OnTime, null, Timeout.Infinite, Timeout.Infinite);
+            GetDisplay=GetSimpleSearch;
+            this.GetSimpleSearch = GetSimpleSearch;
+        }
+        public SearchHelper(List<T> Items, Func<T, string> GetSimpleSearch, Func<T, string> GetDisplay) {
+            _Items = Items;
+            _FilteredItems = Items.ToList();
+            _Timer = new Timer(OnTime, null, Timeout.Infinite, Timeout.Infinite);
+            this.GetDisplay = GetDisplay;
+            this.GetSimpleSearch = GetSimpleSearch;
+        }
         public void SearchChanged()
         {
             _Timer.Change(600, Timeout.Infinite);
