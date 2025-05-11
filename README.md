@@ -12,3 +12,14 @@ Helper.GetSimpleSearch = (i) => i.InvoiceNumber;
 Helper.ListChanged = () = >InvokeAsync(StateHasChanged);
 Helper.StringSearch = "142";
 ```
+
+QuerySearchService
+
+```csharp
+builder.Services.AddScoped<QuerySearchService>();
+```
+
+### Example
+```csharp
+QuerySearchService.QueryFilter(Queriable, searchText,T => $"{T.Label}{T.Code}" )
+```
