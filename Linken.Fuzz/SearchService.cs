@@ -7,7 +7,7 @@ namespace Linken.Fuzzy
 {
     public class QuerySearchService
     {
-        public IQueryable<T> QueryFilter<T>(IQueryable<T> query, string searchText, Func<T,string> f) {
+        public IQueryable<T> QueryFilter<T>(IQueryable<T> query, string? searchText, Func<T,string> f) {
             if (string.IsNullOrWhiteSpace(searchText)) {
                 return query;
             }
