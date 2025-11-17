@@ -41,6 +41,17 @@ namespace Linken.Fuzzy
             }
             return Filtered.AsQueryable();
         }
+        public static IQueryable<T> FuzzyFilter<T>(this IQueryable<T> query,  Func<T, int> GetScore) {
+            var Filtered = new List<T>();
+            var g = query.GroupBy(c => GetScore(c)).Where(g => g.Key > 15).OrderByDescending(g => g.Key);
+            var first = true;
+            foreach (var item in g) {
+                if (first || item.Key > 95)
+                    Filtered.AddRange(item.AsEnumerable());
+                first = false;
+            }
+            return Filtered.AsQueryable();
+        }
         /// <summary>
         /// Fuzzy filter for multiple fields, this will return the best match priotizing the first functions.
         /// </summary>
